@@ -11,7 +11,7 @@
 int dx[8] = { 2, 1, -1, -2, -2, -1, 1, 2 };
 int dy[8] = { 1, 2,  2,  1, -1, -2, -2, -1 };
 
-// Function to print the chessboard
+// Prints the numbers and letters of the board 
 void printBoard(int board[SIZE][SIZE]);
 
 int main() {
@@ -30,11 +30,14 @@ int main() {
         for(int i = 0; i < SIZE; i++) // rows
             for(int j = 0; j < SIZE; j++) // columns
                 board[i][j] = 0;
-
+        
+        // Option for playing
         printf("\nWould you like to begin? (Y/N): ");
         scanf(" %c", &choice);
-        if (toupper(choice) == 'N') 
+        if (toupper(choice) == 'N') {
             break;
+        }
+
 
         // Choose starting position
         printf("Choose starting position (e.g., E4): ");
@@ -93,16 +96,17 @@ int main() {
             printBoard(board);
             printf("\nMove count: %d\n", moveCount);
 
-            Sleep(1000); // 1000 ms delay between moves
+            Sleep(100); // 1000 ms delay between moves
         }
 
         printf("\nWould you like to try again? (Y/N): ");
         scanf(" %c", &choice);
 
     } while (toupper(choice) == 'Y');
-
+    
     printf("\nThanks for playing!\n");
     return 0;
+
 }
 
 void printBoard(int board[SIZE][SIZE]) {
